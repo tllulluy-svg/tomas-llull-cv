@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tomás Llull — Administrativo Contable</title>
+<meta name="description" content="CV de Tomás Llull, Administrativo Contable en Mar del Plata. Más de 4 años en conciliaciones, cuentas corrientes, facturación y control impositivo.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -155,6 +156,14 @@
   .job-tasks li::before { content: '•'; color: var(--navy); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
   .job-divider { border: none; border-top: 1px solid var(--divider); margin: 18px 0; }
 
+  .perfil-text strong { color: var(--navy); font-weight: 600; }
+  .logros { display: flex; flex-direction: column; gap: 12px; }
+  .logro { display: flex; gap: 14px; align-items: flex-start; background: var(--navy-pale); border-radius: 10px; padding: 14px 16px; }
+  .logro-num { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); line-height: 1; min-width: 64px; }
+  .logro-txt { font-size: 0.86rem; line-height: 1.55; color: var(--dark); }
+  .logro-txt strong { color: var(--navy); }
+  .job-tasks li strong { color: var(--navy); font-weight: 600; }
+
   @media print {
     .side-nav { display: none; }
     .page-wrapper { margin-left: 0; }
@@ -190,6 +199,10 @@
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
       <span>Perfil</span>
     </a>
+    <a class="nav-link" href="#logros">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      <span>Logros</span>
+    </a>
     <a class="nav-link" href="#experiencia">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
       <span>Experiencia</span>
@@ -213,7 +226,7 @@
       <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       <span>WhatsApp</span>
     </a>
-    <a class="nav-btn nav-btn-pdf" href="CV-Tomas-Llull.pdf" download="CV-Tomas-Llull.pdf" download="CV-Tomas-Llull.pdf">
+    <a class="nav-btn nav-btn-pdf" href="CV-Tomas-Llull.pdf" download="CV-Tomas-Llull.pdf">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       <span>Descargar PDF</span>
     </a>
@@ -236,11 +249,11 @@
           </span>
           <span class="contact-item">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            t.llullarg@gmail.com
+            <a href="mailto:t.llulluy@gmail.com" style="color:rgba(255,255,255,0.7);text-decoration:none;">t.llulluy@gmail.com</a>
           </span>
           <span class="contact-item">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            <a href="https://www.linkedin.com/in/tomasllull/" target="_blank" style="color:rgba(255,255,255,0.7);text-decoration:none;">LinkedIn: Tomás Llull</a>
+            <a href="https://www.linkedin.com/in/tomasllull/" target="_blank" style="color:rgba(255,255,255,0.7);text-decoration:none;">linkedin.com/in/tomasllull</a>
           </span>
           <span class="contact-item">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -257,7 +270,8 @@
       <div class="card" id="formacion">
         <div class="section-title">Formación</div>
         <ul class="sidebar-list">
-          <li><div><div>Contador Público <em style="color:var(--gray);font-size:0.76rem">(en curso)</em></div><div class="sidebar-sub">Univ. Atlántida Arg. / UNMdP — egreso 2028</div></div></li>
+          <li><div><div>Contador Público <em style="color:var(--gray);font-size:0.76rem">(en curso)</em></div><div class="sidebar-sub">Universidad Atlántida Argentina — egreso proyectado 2028</div><div class="sidebar-sub">Cursada 2023–2025 en UNMdP</div></div></li>
+          <li><div><div>Ingeniería Industrial</div><div class="sidebar-sub">UNMdP · 2019–2022 — 3 años cursados</div><div class="sidebar-sub">Base cuantitativa y de optimización de procesos</div></div></li>
           <li><div><div>Bachiller en Economía y Administración</div><div class="sidebar-sub">Instituto Peralta Ramos</div></div></li>
         </ul>
       </div>
@@ -270,11 +284,12 @@
       </div>
 
       <div class="card" id="conocimientos">
-        <div class="section-title">Conocimientos</div>
-        <div class="skill-group"><div class="skill-label">Sistemas ERP</div><div class="skill-tags"><span class="tag">Holistor (avanzado)</span><span class="tag">SIGCO</span></div></div>
-        <div class="skill-group"><div class="skill-label">Ofimática</div><div class="skill-tags"><span class="tag">Excel (experto)</span><span class="tag">Macros</span><span class="tag">Google Sheets</span><span class="tag">Word</span><span class="tag">PowerPoint</span></div></div>
-        <div class="skill-group"><div class="skill-label">AFIP</div><div class="skill-tags"><span class="tag">Mis Comprobantes</span><span class="tag">Mis Facilidades</span><span class="tag">SIAP</span><span class="tag">DDJJ y Pagos</span></div></div>
-        <div class="skill-group"><div class="skill-label">Herramientas IA</div><div class="skill-tags"><span class="tag">Claude</span><span class="tag">V0</span></div></div>
+        <div class="section-title">Herramientas y sistemas</div>
+        <div class="skill-group"><div class="skill-label">ERP y gestión</div><div class="skill-tags"><span class="tag">Holistor (avanzado)</span><span class="tag">SIGCO</span></div></div>
+        <div class="skill-group"><div class="skill-label">Excel — nivel experto</div><div class="skill-tags"><span class="tag">Macros</span><span class="tag">Tablas dinámicas</span><span class="tag">Automatización de conciliaciones</span></div></div>
+        <div class="skill-group"><div class="skill-label">Herramientas de Google</div><div class="skill-tags"><span class="tag">Google Sheets</span></div></div>
+        <div class="skill-group"><div class="skill-label">ARCA (ex AFIP)</div><div class="skill-tags"><span class="tag">Mis Comprobantes</span><span class="tag">Mis Facilidades</span><span class="tag">SIAP</span><span class="tag">DDJJ y pagos</span></div></div>
+        <div class="skill-group"><div class="skill-label">IA aplicada a procesos</div><div class="skill-tags"><span class="tag">Claude</span><span class="tag">v0</span></div></div>
       </div>
 
       <div class="card">
@@ -285,7 +300,7 @@
       <div class="card" id="referencias">
         <div class="section-title">Referencias</div>
         <ul class="sidebar-list">
-          <li><div><div><strong>CP Vanesa Imbelloni</strong></div><div class="sidebar-sub">De las Pampas Resort SA</div><div class="sidebar-sub">+54 223 586-0392</div></div></li>
+          <li><div><div><strong>CP Vanesa Imbelloni</strong></div><div class="sidebar-sub">De las Pampas Resort S.A.</div><div class="sidebar-sub">+54 223 586-0392</div></div></li>
         </ul>
       </div>
 
@@ -295,25 +310,32 @@
 
       <div class="card" id="perfil">
         <div class="section-heading">Perfil Profesional</div>
-        <p class="perfil-text">Administrativo contable con más de 3 años de experiencia en conciliaciones bancarias, gestión de cuentas corrientes, facturación y control contable en hostelería, gastronomía y comercio. Actualmente a cargo de las operaciones contables de múltiples sociedades — cuentas corrientes, conciliaciones, facturación y control impositivo. Manejo avanzado de Excel, macros y herramientas de IA para optimización de procesos. Cursando Contador Público — egreso proyectado 2028.</p>
+        <p class="perfil-text">Administrativo contable con <strong>más de 4 años de experiencia</strong> en conciliaciones bancarias, cuentas corrientes, facturación y control impositivo en hotelería, gastronomía y comercio. Actualmente a cargo de las operaciones contables de <strong>6 sociedades de un grupo económico</strong>, reportando directamente al contador. Base cuantitativa de 3 años de Ingeniería Industrial aplicada a la automatización de procesos con Excel avanzado, macros e IA. Cursando Contador Público — egreso proyectado 2028.</p>
+      </div>
+
+      <div class="card" id="logros">
+        <div class="section-heading">Logros Destacados</div>
+        <div class="logros">
+          <div class="logro"><div class="logro-num">–75%</div><div class="logro-txt"><strong>Reduje el cierre de conciliaciones de 8 a 2 días</strong> automatizando el proceso con macros y plantillas de Excel.</div></div>
+          <div class="logro"><div class="logro-num">26</div><div class="logro-txt"><strong>Administro 26 cuentas bancarias más Mercado Pago</strong> para 6 sociedades en simultáneo, con conciliación mensual completa.</div></div>
+        </div>
       </div>
 
       <div class="card" id="experiencia">
         <div class="section-heading">Experiencia Laboral</div>
 
         <div class="job">
-          <div class="job-header"><span class="job-company">La Fonte D'Oro / Grupo Económico</span><span class="job-period">Jul. 2024 – Actualidad</span></div>
+          <div class="job-header"><span class="job-company">La Fonte D'Oro — Grupo Económico</span><span class="job-period">Jul. 2024 – Actualidad</span></div>
           <div class="job-role">Administrativo Contable</div>
-          <div class="job-note">Para las sociedades del grupo (La Fonte D'Oro, Desarrollo Gastronómico Guapas, Operadora Riva, Gran Hotel Panamericano, Candylatte MDQ, Córdoba 2627, entre otras):</div>
+          <div class="job-note">Grupo gastronómico y hotelero de Mar del Plata · 6 sociedades: La Fonte D'Oro, Desarrollo Gastronómico Guapas, Operadora Riva, Gran Hotel Panamericano, Candylatte MDQ y Córdoba 2627 · Reporte directo al contador.</div>
           <ul class="job-tasks">
-            <li>Conciliaciones bancarias y de tarjetas para múltiples sociedades simultáneas</li>
-            <li>Conciliación de cuentas corrientes de clientes</li>
-            <li>Conciliación de pagos: Pedidos Ya y Mercado Pago · Control de precios · Remitos</li>
-            <li>Facturación a franquicias · Carga de gastos e impuestos</li>
-            <li>Seguimiento de vencimientos impositivos y planes de pago — AFIP Mis Facilidades</li>
-            <li>Seguimiento y gestión de préstamos bancarios para las sociedades del grupo</li>
-            <li>Gestión de promociones bancarias (cuotas, descuentos, días de pago)</li>
-            <li>Optimización de procesos mediante Excel avanzado, macros e IA</li>
+            <li><span><strong>Conciliación de 26 cuentas bancarias, tarjetas y Mercado Pago</strong> para 6 sociedades simultáneas; automaticé el proceso y reduje el ciclo de 8 a 2 días.</span></li>
+            <li>Conciliación de cuentas corrientes de clientes y de pagos de Pedidos Ya y Mercado Pago · Control de precios y remitos.</li>
+            <li>Facturación a franquicias.</li>
+            <li>Carga de gastos e imputación de impuestos.</li>
+            <li><span><strong>Conciliación de facturas de compra:</strong> control cruzado del IVA compras contra Mis Comprobantes de <strong>ARCA (ex AFIP)</strong>.</span></li>
+            <li>Seguimiento de vencimientos impositivos y administración de planes de pago — ARCA Mis Facilidades.</li>
+            <li>Gestión y seguimiento de préstamos bancarios y de promociones con bancos (cuotas, descuentos, días de pago) para todo el grupo.</li>
           </ul>
         </div>
 
@@ -322,12 +344,12 @@
         <div class="job">
           <div class="job-header"><span class="job-company">De las Pampas Resort</span><span class="job-period">Mar. 2023 – Jul. 2024</span></div>
           <div class="job-role">Asistente Contable</div>
-          <div class="job-note">Gestión contable para 2 unidades de negocio:</div>
+          <div class="job-note">Hotelería · Gestión contable de 2 unidades de negocio · ERP Holistor.</div>
           <ul class="job-tasks">
-            <li>Conciliaciones bancarias, de tarjetas y de caja · CC clientes y proveedores</li>
-            <li>Pagos a proveedores · Facturas · Libros de ventas y compras · Comisiones</li>
-            <li>Conciliación sistema de gestión y reservas · Registro de bienes adquiridos</li>
-            <li>Reorganización del sistema de archivo para mayor eficiencia operativa</li>
+            <li>Conciliaciones bancarias, de tarjetas y de caja · Cuentas corrientes de clientes y proveedores.</li>
+            <li>Pagos a proveedores · Registro de facturas · Libros de IVA ventas y compras · Liquidación de comisiones.</li>
+            <li>Conciliación entre el sistema de gestión y reservas y la contabilidad.</li>
+            <li><span><strong>Rediseñé el sistema de archivo documental</strong>, mejorando la trazabilidad y acortando la búsqueda de históricos.</span></li>
           </ul>
         </div>
 
@@ -336,10 +358,12 @@
         <div class="job">
           <div class="job-header"><span class="job-company">Soluciones Turísticas EVT</span><span class="job-period">Ene. 2022 – Mar. 2023</span></div>
           <div class="job-role">Administrativo</div>
-          <div class="job-note">Gestión administrativa para 2 hoteles:</div>
+          <div class="job-note">Agencia de viajes · Gestión administrativa de 2 hoteles.</div>
           <ul class="job-tasks">
-            <li>Conciliaciones bancarias · CC · Pago a proveedores, impuestos y servicios</li>
-            <li>Registro de facturas · Novedades laborales · Arqueos de cajas a terceros</li>
+            <li><span><strong>Implementé el circuito de conciliación bancaria desde cero</strong>, inexistente hasta ese momento en la empresa.</span></li>
+            <li><span><strong>Diseñé el sistema de gestión administrativa en Excel:</strong> ordenamiento de procesos, seguimiento y control operativo.</span></li>
+            <li>Cuentas corrientes · Pago a proveedores, impuestos y servicios · Registro de facturas.</li>
+            <li>Novedades laborales · Arqueos de caja a terceros.</li>
           </ul>
         </div>
 
