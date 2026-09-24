@@ -217,6 +217,38 @@
   .job-tasks li::before { content: '•'; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
   .job-tasks li strong { color: var(--accent); font-weight: 600; }
 
+
+  /* ── Acordeón (abrir / cerrar secciones) ── */
+  .acc-h { margin: 0; }
+  .acc-btn { width: 100%; background: none; border: none; font-family: inherit; cursor: pointer; text-align: left;
+    display: flex; align-items: center; justify-content: space-between; gap: 10px; transition: margin .3s ease, border-color .3s ease, padding .3s ease; }
+  .acc-btn .chev, .job-more .chev { flex-shrink: 0; transition: transform .3s ease; color: var(--accent); }
+  .acc-btn:hover { color: var(--navy-light); }
+  .acc.closed .acc-btn { margin-bottom: 0; padding-bottom: 0; border-bottom-color: transparent; }
+  .acc.closed > .acc-h .chev { transform: rotate(-90deg); }
+  .acc-body { display: grid; grid-template-rows: 1fr; transition: grid-template-rows .32s ease; }
+  .acc-inner { overflow: hidden; min-height: 0; }
+  .acc.closed > .acc-body, .acc-job.closed > .acc-body { grid-template-rows: 0fr; }
+  .card.acc { transition: background .25s, border-color .25s, box-shadow .2s; }
+  .card.acc.closed:hover { box-shadow: 0 0 0 1px var(--navy-light), var(--shadow); }
+
+  .job-toggle { width: 100%; background: none; border: none; font: inherit; color: inherit; text-align: left; cursor: pointer; padding: 0; display: block; border-radius: 8px; }
+  .job-toggle .job-role { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .job-more { display: inline-flex; align-items: center; gap: 4px; font-size: .72rem; font-weight: 600; color: var(--gray); white-space: nowrap; }
+  .job-toggle:hover .job-more { color: var(--accent); }
+  .acc-job:not(.closed) .job-more .chev { transform: rotate(180deg); }
+  .acc-job .acc-inner { padding-top: 2px; }
+
+  .acc-toolbar { display: flex; justify-content: flex-end; align-items: center; gap: 8px; font-size: .76rem; color: var(--gray); margin-bottom: -6px; }
+  .acc-toolbar button { background: none; border: none; font: inherit; font-weight: 600; color: var(--accent); cursor: pointer; padding: 4px 2px; }
+  .acc-toolbar button:hover { text-decoration: underline; }
+  @media (prefers-reduced-motion: reduce) { .acc-body, .acc-btn .chev, .job-more .chev { transition: none; } }
+  @media (max-width: 860px) {
+    .acc-btn { min-height: 28px; }
+    .card.acc { padding: 18px; }
+    .acc-toolbar { justify-content: center; margin: 0; }
+  }
+
   /* Footer */
   footer { max-width: 900px; margin: 0 auto; padding: 8px 32px 48px; }
   .footer-inner { border-top: 1px solid var(--divider); padding-top: 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: .78rem; color: var(--gray); }
@@ -305,6 +337,9 @@
     .job-tasks li, .logro-txt, .sidebar-list li { font-size: .76rem; }
     .job { margin-bottom: 14px; }
     #experiencia { break-inside: auto; }
+    .acc-body { grid-template-rows: 1fr !important; }
+    .acc .chev, .job-more, .acc-toolbar { display: none !important; }
+    .acc.closed .acc-btn { margin-bottom: 14px; padding-bottom: 8px; border-bottom-color: var(--navy-pale); }
     footer { padding: 0 !important; }
     .print-only img { width: 64px; height: 64px; }
   }
@@ -438,42 +473,52 @@
   <div class="main" id="contenido">
     <aside class="sidebar">
 
-      <div class="card reveal" id="formacion">
-        <h2 class="section-title">Formación</h2>
+      <section class="card reveal acc" id="formacion" data-open-desktop="1" data-open-mobile="0">
+        <h2 class="acc-h"><button class="acc-btn section-title" type="button" aria-expanded="true" aria-controls="formacion-body"><span>Formación</span><svg class="chev" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h2>
+        <div class="acc-body" id="formacion-body"><div class="acc-inner">
         <ul class="sidebar-list">
           <li><div><div>Contador Público <em style="color:var(--gray);font-size:0.76rem">(en curso)</em></div><div class="sidebar-sub">Universidad Atlántida Argentina — egreso proyectado 2028</div><div class="sidebar-sub">Cursada 2023–2025 en UNMdP</div></div></li>
           <li><div><div>Ingeniería Industrial</div><div class="sidebar-sub">UNMdP · 2019–2022 — 3 años cursados</div><div class="sidebar-sub">Base cuantitativa y de optimización de procesos</div></div></li>
           <li><div><div>Bachiller en Economía y Administración</div><div class="sidebar-sub">Instituto Peralta Ramos</div></div></li>
         </ul>
-      </div>
+        </div></div>
+      </section>
 
-      <div class="card reveal">
-        <h2 class="section-title">Capacitaciones</h2>
+      <section class="card reveal acc" id="capacitaciones" data-open-desktop="1" data-open-mobile="0">
+        <h2 class="acc-h"><button class="acc-btn section-title" type="button" aria-expanded="true" aria-controls="capacitaciones-body"><span>Capacitaciones</span><svg class="chev" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h2>
+        <div class="acc-body" id="capacitaciones-body"><div class="acc-inner">
         <ul class="sidebar-list">
           <li><div><div>Excel y Análisis de Datos</div><div class="sidebar-sub">Coderhouse — 2025</div></div></li>
         </ul>
-      </div>
+        </div></div>
+      </section>
 
-      <div class="card reveal" id="conocimientos">
-        <h2 class="section-title">Herramientas y sistemas</h2>
+      <section class="card reveal acc" id="conocimientos" data-open-desktop="1" data-open-mobile="0">
+        <h2 class="acc-h"><button class="acc-btn section-title" type="button" aria-expanded="true" aria-controls="conocimientos-body"><span>Herramientas y sistemas</span><svg class="chev" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h2>
+        <div class="acc-body" id="conocimientos-body"><div class="acc-inner">
         <div class="skill-group"><div class="skill-label">ERP y gestión</div><div class="skill-tags"><span class="tag">Holistor (avanzado)</span><span class="tag">SIGCO</span></div></div>
         <div class="skill-group"><div class="skill-label">Excel — nivel experto</div><div class="skill-tags"><span class="tag">Macros</span><span class="tag">Tablas dinámicas</span><span class="tag">Automatización de conciliaciones</span></div></div>
         <div class="skill-group"><div class="skill-label">Herramientas de Google</div><div class="skill-tags"><span class="tag">Google Sheets</span></div></div>
         <div class="skill-group"><div class="skill-label">ARCA (ex AFIP)</div><div class="skill-tags"><span class="tag">Mis Comprobantes</span><span class="tag">Mis Facilidades</span><span class="tag">SIAP</span><span class="tag">DDJJ y pagos</span></div></div>
         <div class="skill-group"><div class="skill-label">IA aplicada a procesos</div><div class="skill-tags"><span class="tag">Claude</span><span class="tag">v0</span></div></div>
-      </div>
+        </div></div>
+      </section>
 
-      <div class="card reveal">
-        <h2 class="section-title">Idiomas</h2>
+      <section class="card reveal acc" id="idiomas" data-open-desktop="1" data-open-mobile="0">
+        <h2 class="acc-h"><button class="acc-btn section-title" type="button" aria-expanded="true" aria-controls="idiomas-body"><span>Idiomas</span><svg class="chev" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h2>
+        <div class="acc-body" id="idiomas-body"><div class="acc-inner">
         <ul class="sidebar-list"><li>Inglés — Nivel intermedio</li></ul>
-      </div>
+        </div></div>
+      </section>
 
-      <div class="card reveal" id="referencias">
-        <h2 class="section-title">Referencias</h2>
+      <section class="card reveal acc" id="referencias" data-open-desktop="1" data-open-mobile="0">
+        <h2 class="acc-h"><button class="acc-btn section-title" type="button" aria-expanded="true" aria-controls="referencias-body"><span>Referencias</span><svg class="chev" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h2>
+        <div class="acc-body" id="referencias-body"><div class="acc-inner">
         <ul class="sidebar-list">
           <li><div><div><strong>CP Vanesa Imbelloni</strong></div><div class="sidebar-sub">De las Pampas Resort S.A.</div><div class="sidebar-sub">+54 223 586-0392</div></div></li>
         </ul>
-      </div>
+        </div></div>
+      </section>
 
     </aside>
 
@@ -486,26 +531,40 @@
         <button type="button" data-share>Compartir CV</button>
       </div>
 
-      <div class="card reveal" id="perfil">
-        <h2 class="section-heading">Perfil Profesional</h2>
-        <p class="perfil-text">Administrativo contable con <strong>más de 4 años de experiencia</strong> en conciliaciones bancarias, cuentas corrientes, facturación y control impositivo en hotelería, gastronomía y comercio. Actualmente a cargo de las operaciones contables de <strong>6 sociedades de un grupo económico</strong>, reportando directamente al contador. Base cuantitativa de 3 años de Ingeniería Industrial aplicada a la automatización de procesos con Excel avanzado, macros e IA. Cursando Contador Público — egreso proyectado 2028.</p>
+      <div class="acc-toolbar" role="group" aria-label="Mostrar u ocultar secciones">
+        <button type="button" data-acc-all="open">Expandir todo</button>
+        <span aria-hidden="true">·</span>
+        <button type="button" data-acc-all="close">Contraer todo</button>
       </div>
 
-      <div class="card reveal" id="logros">
-        <h2 class="section-heading">Logros Destacados</h2>
+      <section class="card reveal acc" id="perfil" data-open-desktop="1" data-open-mobile="1">
+        <h2 class="acc-h"><button class="acc-btn section-heading" type="button" aria-expanded="true" aria-controls="perfil-body"><span>Perfil Profesional</span><svg class="chev" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h2>
+        <div class="acc-body" id="perfil-body"><div class="acc-inner">
+        <p class="perfil-text">Administrativo contable con <strong>más de 4 años de experiencia</strong> en conciliaciones bancarias, cuentas corrientes, facturación y control impositivo en hotelería, gastronomía y comercio. Actualmente a cargo de las operaciones contables de <strong>6 sociedades de un grupo económico</strong>, reportando directamente al contador. Base cuantitativa de 3 años de Ingeniería Industrial aplicada a la automatización de procesos con Excel avanzado, macros e IA. Cursando Contador Público — egreso proyectado 2028.</p>
+        </div></div>
+      </section>
+
+      <section class="card reveal acc" id="logros" data-open-desktop="1" data-open-mobile="1">
+        <h2 class="acc-h"><button class="acc-btn section-heading" type="button" aria-expanded="true" aria-controls="logros-body"><span>Logros Destacados</span><svg class="chev" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h2>
+        <div class="acc-body" id="logros-body"><div class="acc-inner">
         <div class="logros">
           <div class="logro"><div class="logro-num">–75%</div><div class="logro-txt"><strong>Reduje el cierre de conciliaciones de 8 a 2 días</strong> automatizando el proceso con macros y plantillas de Excel.</div></div>
           <div class="logro"><div class="logro-num">26</div><div class="logro-txt"><strong>Administro 26 cuentas bancarias más Mercado Pago</strong> para 6 sociedades en simultáneo, con conciliación mensual completa.</div></div>
         </div>
-      </div>
+        </div></div>
+      </section>
 
-      <div class="card reveal" id="experiencia">
-        <h2 class="section-heading">Experiencia Laboral</h2>
+      <section class="card reveal acc" id="experiencia" data-open-desktop="1" data-open-mobile="0">
+        <h2 class="acc-h"><button class="acc-btn section-heading" type="button" aria-expanded="true" aria-controls="experiencia-body"><span>Experiencia Laboral</span><svg class="chev" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h2>
+        <div class="acc-body" id="experiencia-body"><div class="acc-inner">
 
         <div class="timeline">
-          <div class="job current">
-            <div class="job-header"><h3 class="job-company">La Fonte D'Oro — Grupo Económico</h3><span class="job-period" data-start="2024-07" data-end="actual">Jul. 2024 – Actualidad</span></div>
-            <div class="job-role">Administrativo Contable</div>
+          <div class="job acc-job current" data-open-desktop="1" data-open-mobile="1">
+            <button class="job-toggle" type="button" aria-expanded="true" aria-controls="job1-body">
+              <div class="job-header"><h3 class="job-company">La Fonte D'Oro — Grupo Económico</h3><span class="job-period" data-start="2024-07" data-end="actual">Jul. 2024 – Actualidad</span></div>
+              <div class="job-role"><span>Administrativo Contable</span><span class="job-more"><span data-more-label>Ver tareas</span><svg class="chev" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+            </button>
+            <div class="acc-body" id="job1-body"><div class="acc-inner">
             <div class="job-note">Grupo gastronómico y hotelero de Mar del Plata · 6 sociedades: La Fonte D'Oro, Desarrollo Gastronómico Guapas, Operadora Riva, Gran Hotel Panamericano, Candylatte MDQ y Córdoba 2627 · Reporte directo al contador.</div>
             <ul class="job-tasks">
               <li><span><strong>Conciliación de 26 cuentas bancarias, tarjetas y Mercado Pago</strong> para 6 sociedades simultáneas; automaticé el proceso y reduje el ciclo de 8 a 2 días.</span></li>
@@ -516,11 +575,15 @@
               <li>Seguimiento de vencimientos impositivos y administración de planes de pago — ARCA Mis Facilidades.</li>
               <li>Gestión y seguimiento de préstamos bancarios y de promociones con bancos (cuotas, descuentos, días de pago) para todo el grupo.</li>
             </ul>
+            </div></div>
           </div>
 
-          <div class="job">
-            <div class="job-header"><h3 class="job-company">De las Pampas Resort</h3><span class="job-period" data-start="2023-03" data-end="2024-07">Mar. 2023 – Jul. 2024</span></div>
-            <div class="job-role">Asistente Contable</div>
+          <div class="job acc-job" data-open-desktop="0" data-open-mobile="0">
+            <button class="job-toggle" type="button" aria-expanded="true" aria-controls="job2-body">
+              <div class="job-header"><h3 class="job-company">De las Pampas Resort</h3><span class="job-period" data-start="2023-03" data-end="2024-07">Mar. 2023 – Jul. 2024</span></div>
+              <div class="job-role"><span>Asistente Contable</span><span class="job-more"><span data-more-label>Ver tareas</span><svg class="chev" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+            </button>
+            <div class="acc-body" id="job2-body"><div class="acc-inner">
             <div class="job-note">Hotelería · Gestión contable de 2 unidades de negocio · ERP Holistor.</div>
             <ul class="job-tasks">
               <li>Conciliaciones bancarias, de tarjetas y de caja · Cuentas corrientes de clientes y proveedores.</li>
@@ -528,11 +591,15 @@
               <li>Conciliación entre el sistema de gestión y reservas y la contabilidad.</li>
               <li><span><strong>Rediseñé el sistema de archivo documental</strong>, mejorando la trazabilidad y acortando la búsqueda de históricos.</span></li>
             </ul>
+            </div></div>
           </div>
 
-          <div class="job">
-            <div class="job-header"><h3 class="job-company">Soluciones Turísticas EVT</h3><span class="job-period" data-start="2022-01" data-end="2023-03">Ene. 2022 – Mar. 2023</span></div>
-            <div class="job-role">Administrativo</div>
+          <div class="job acc-job" data-open-desktop="0" data-open-mobile="0">
+            <button class="job-toggle" type="button" aria-expanded="true" aria-controls="job3-body">
+              <div class="job-header"><h3 class="job-company">Soluciones Turísticas EVT</h3><span class="job-period" data-start="2022-01" data-end="2023-03">Ene. 2022 – Mar. 2023</span></div>
+              <div class="job-role"><span>Administrativo</span><span class="job-more"><span data-more-label>Ver tareas</span><svg class="chev" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+            </button>
+            <div class="acc-body" id="job3-body"><div class="acc-inner">
             <div class="job-note">Agencia de viajes · Gestión administrativa de 2 hoteles.</div>
             <ul class="job-tasks">
               <li><span><strong>Implementé el circuito de conciliación bancaria desde cero</strong>, inexistente hasta ese momento en la empresa.</span></li>
@@ -540,9 +607,11 @@
               <li>Cuentas corrientes · Pago a proveedores, impuestos y servicios · Registro de facturas.</li>
               <li>Novedades laborales · Arqueos de caja a terceros.</li>
             </ul>
+            </div></div>
           </div>
         </div>
-      </div>
+        </div></div>
+      </section>
 
     </main>
   </div>
@@ -622,6 +691,37 @@
     });
   });
   syncThemeLabel();
+
+
+  /* ── Acordeón ── */
+  var isMobile = function () { return window.matchMedia('(max-width: 860px)').matches; };
+  function setOpen(el, open) {
+    el.classList.toggle('closed', !open);
+    var btn = el.querySelector(':scope > .acc-h > .acc-btn, :scope > .job-toggle');
+    if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    var lbl = el.querySelector(':scope > .job-toggle [data-more-label]');
+    if (lbl) lbl.textContent = open ? 'Ocultar' : 'Ver tareas';
+  }
+  var accs = Array.prototype.slice.call(document.querySelectorAll('.acc, .acc-job'));
+  accs.forEach(function (el) {
+    setOpen(el, el.getAttribute(isMobile() ? 'data-open-mobile' : 'data-open-desktop') === '1');
+    var btn = el.querySelector(':scope > .acc-h > .acc-btn, :scope > .job-toggle');
+    btn.addEventListener('click', function () { setOpen(el, el.classList.contains('closed')); });
+  });
+  document.querySelectorAll('[data-acc-all]').forEach(function (b) {
+    b.addEventListener('click', function () { var o = b.getAttribute('data-acc-all') === 'open'; accs.forEach(function (el) { setOpen(el, o); }); });
+  });
+  // Al tocar una opción del menú, se abre esa sección
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var t = document.getElementById(a.getAttribute('href').slice(1));
+      if (t && t.classList.contains('acc')) setOpen(t, true);
+    });
+  });
+  // Al imprimir, se muestra todo
+  var printState = null;
+  window.addEventListener('beforeprint', function () { printState = accs.map(function (el) { return el.classList.contains('closed'); }); accs.forEach(function (el) { setOpen(el, true); }); });
+  window.addEventListener('afterprint', function () { if (printState) accs.forEach(function (el, i) { setOpen(el, !printState[i]); }); });
 
   /* ── Duración de cada puesto ── */
   function months(a, b) { return (b.getFullYear() - a.getFullYear()) * 12 + (b.getMonth() - a.getMonth()); }
